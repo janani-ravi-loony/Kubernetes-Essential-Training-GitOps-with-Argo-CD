@@ -1,1 +1,2 @@
-# Kubernetes-Essential-Training-GitOps-with-Argo-CD
+# Kubernetes Essential Training GitOps with Argo CD
+
