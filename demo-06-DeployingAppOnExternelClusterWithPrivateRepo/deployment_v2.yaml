@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-app
+  name: hello-deployment
+  annotations:
+    link.argocd.argoproj.io/external-link: https://hub.docker.com/repository/docker/clouduserloony/hello-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-app
+  template:
+    metadata:
+      labels:
+        app: hello-app
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: hello-deployment
+        image: clouduserloony/hello-app:v2
+        imagePullPolicy: Always
+
+
+

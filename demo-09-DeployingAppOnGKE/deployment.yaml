@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: summer-trip
+  name: summer-trip-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: summer-trip
+  template:
+    metadata:
+      labels:
+        app: summer-trip
+    spec:
+      imagePullSecrets:      
+      - name: regcred
+      containers:
+      - name: summer-trip
+        image: gcr.io/loony-gcp-project/summer-trip:v1
+        imagePullPolicy: Always
